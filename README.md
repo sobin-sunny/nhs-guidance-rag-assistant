@@ -12,7 +12,7 @@ device in this prototype design.
 > modern GenAI engineering stack : retrieval-augmented generation, embeddings,
 > vector search, LangChain orchestration, and prompt engineering which are applied to a
 > realistic public-sector use case. A one-page
-> [design & governance note](NHS_RAG_Assistant_Design_Note.pdf) sets out how it
+> [design & governance note](NHS_RAG_Assistant_Design_Note.docx) sets out how it
 > would be productionised and governed responsibly.
 >
 > **Not affiliated with or endorsed by the NHSBSA.** The sample documents are
