@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.Python
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# The built search index is regenerated locally by build_index.py
+vectorstore/*
+!vectorstore/.gitkeep
+
+# Model / library caches
+.cache/
+*.faiss
+*.pkl
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp

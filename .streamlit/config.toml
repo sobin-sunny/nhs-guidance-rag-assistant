@@ -1,0 +1,11 @@
+# Streamlit configuration
+#
+# We turn off the file-watcher's auto-reload scanning. That scanning walks
+# through installed libraries (including transformers) and prints harmless but
+# noisy warnings about optional packages we don't use, such as torchvision.
+# Disabling it removes the noise and has no effect on how the app runs.
+[server]
+fileWatcherType = "none"
+
+[browser]
+gatherUsageStats = false
