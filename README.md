@@ -1,6 +1,6 @@
 # NHS Guidance Assistant : A Retrieval-Augmented Generation (RAG) prototype
 
-![The assistant showing sources for its answer](results/Answer_Sources.png)
+![The assistant showing sources for its answer](results/QA.png)
 
 A chat assistant over public NHS guidance documents.
 It answers plain English questions from a user using **only** the source documents and shows
