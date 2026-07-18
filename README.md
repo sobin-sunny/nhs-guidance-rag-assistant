@@ -1,6 +1,6 @@
 # NHS Guidance Assistant : A Retrieval-Augmented Generation (RAG) prototype
 
-![The assistant showing sources for its answer](results/QA.png)
+![The RAG in a QA Local App](results/QA.png)
 
 A chat assistant over public NHS guidance documents.
 It answers plain English questions from a user using **only** the source documents and shows
@@ -30,6 +30,8 @@ answers from official documents and not in a language model's general knowledge.
 Retrieval Augmented Generation (RAG) is the pattern that delivers exactly that,
 and grounding every answer in retrieved source text is the single biggest
 safeguard against a model inventing information people might act on. 
+
+![The assistant showing sources for its answer](results/Answer_Sources.png)
 
 ---
 
