@@ -1,14 +1,16 @@
-# NHS Guidance Assistant — a Retrieval-Augmented Generation (RAG) prototype
+# NHS Guidance Assistant : A Retrieval-Augmented Generation (RAG) prototype
 
-A privacy-first question-answering assistant over public NHS guidance documents.
-It answers plain-English questions using **only** the source documents and shows
+A chat assistant over public NHS guidance documents.
+It answers plain English questions from a user using **only** the source documents and shows
 the exact source (document and page) behind every answer. It runs **entirely on
-your own machine, for free** — no API keys, no cloud, and no data leaving the
-device.
+your own machine, for free**. 
+
+There are no API keys, no cloud, and no data leaving the
+device in this prototype design.
 
 > **Status:** working prototype, built as a portfolio project to demonstrate the
-> modern GenAI engineering stack — retrieval-augmented generation, embeddings,
-> vector search, LangChain orchestration, and prompt engineering — applied to a
+> modern GenAI engineering stack : retrieval-augmented generation, embeddings,
+> vector search, LangChain orchestration, and prompt engineering which are applied to a
 > realistic public-sector use case. A one-page
 > [design & governance note](NHS_RAG_Assistant_Design_Note.pdf) sets out how it
 > would be productionised and governed responsibly.
@@ -22,19 +24,17 @@ device.
 ## Why this project
 
 The value of an assistant like this is in giving **trusted, current, citable**
-answers from official documents — not in a language model's general knowledge.
-Retrieval-Augmented Generation (RAG) is the pattern that delivers exactly that,
+answers from official documents and not in a language model's general knowledge.
+Retrieval Augmented Generation (RAG) is the pattern that delivers exactly that,
 and grounding every answer in retrieved source text is the single biggest
-safeguard against a model inventing information people might act on. The
-privacy-first, on-device design is a deliberate choice for public, potentially
-sensitive data.
+safeguard against a model inventing information people might act on. 
 
 ---
 
 ## What is RAG, in one paragraph?
 
 A language model on its own only knows what it was trained on, and it will
-happily "make things up" if asked about something it does not know. RAG fixes
+hallucinate if asked about something it does not know. RAG fixes
 that: before the model answers, we **retrieve** the most relevant passages from
 a trusted document set and hand them to the model, instructing it to answer
 **only** from those passages. The result is grounded, checkable, and far less
@@ -46,17 +46,16 @@ likely to invent things.
 
 ```
   STEP 1 — INGESTION (run once)              STEP 2 — ANSWERING (every question)
-  ┌───────────────────────────┐             ┌─────────────────────────────────┐
-  │  PDFs                      │             │  Your question                  │
-  │    ↓  load                 │             │    ↓  embed the question         │
-  │  pages of text             │             │  find the closest chunks         │
-  │    ↓  chunk (~1000 chars)  │             │    ↓  (FAISS similarity search)  │
-  │  overlapping passages      │             │  paste them into a strict prompt │
-  │    ↓  embed (MiniLM)       │             │    ↓                             │
-  │  vectors (lists of numbers)│             │  local model writes the answer   │
-  │    ↓  store                │             │    ↓  using ONLY those passages   │
-  │  FAISS vector index  ──────┼────────────▶│  answer + sources shown          │
-  └───────────────────────────┘             └─────────────────────────────────┘
+  
+    PDFs                                     Your question                  
+      ↓  load                                 ↓  embed the question         
+    pages of text                            find the closest chunks         
+      ↓  chunk (~1000 chars)                   ↓  (FAISS similarity search)  
+    overlapping passages                     paste them into a strict prompt
+      ↓  embed (MiniLM)                        ↓                             
+    vectors (lists of numbers)               local model writes the answer   
+      ↓  store                                 ↓  using ONLY those passages  
+    FAISS vector index  ──────────────────▶  answer + sources shown          
 ```
 
 **The jargon, translated:**
@@ -133,7 +132,7 @@ python app\ask.py "How much does an HRT prescription prepayment certificate cost
 ## Design choices worth noting
 
 - **Grounded and honest.** The assistant answers only from the source guidance
-  and explicitly says when an answer is not present — it does not guess. This
+  and explicitly says when an answer is not present without any guess. This
   behaviour comes straight from the prompt in `app/rag_engine.py`.
 - **Transparent.** Every answer shows its source document and page, so any
   output can be checked and challenged.
