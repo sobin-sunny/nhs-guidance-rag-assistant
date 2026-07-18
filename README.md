@@ -1,11 +1,12 @@
 # NHS Guidance Assistant : A Retrieval-Augmented Generation (RAG) prototype
 
-![The RAG in a QA Local App](results/QA.png)
 
 A chat assistant over public NHS guidance documents.
 It answers plain English questions from a user using **only** the source documents and shows
 the exact source (document and page) behind every answer. It runs **entirely on
 your own machine, for free**. 
+
+![The RAG in a QA Local App](results/QA.png)
 
 There are no API keys, no cloud, and no data leaving the
 device in this prototype design.
